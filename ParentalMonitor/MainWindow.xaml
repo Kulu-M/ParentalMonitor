@@ -8,7 +8,8 @@
         Title="Parental Monitor" Height="350" Width="525" Loaded="Window_Loaded">
     <Grid>
         <Button x:Name="b_activateControl" Content="Act" HorizontalAlignment="Left" Margin="95,65,0,0" VerticalAlignment="Top" Width="75" Click="b_activateControl_Click"/>
-        <Button x:Name="b_deactivateControl" Content="Deact" HorizontalAlignment="Left" Margin="346,76,0,0" VerticalAlignment="Top" Width="75" Click="b_deactivateControl_Click" Loaded="b_deactivateControl_Loaded"/>
+        <Button x:Name="b_deactivateControl" Content="Deact" HorizontalAlignment="Left" Margin="346,76,0,0" VerticalAlignment="Top" Width="75" Click="b_deactivateControl_Click"/>
+        <Button x:Name="b_hideWindow" Content="Hide" HorizontalAlignment="Left" Margin="95,227,0,0" VerticalAlignment="Top" Width="75" Click="b_hideWindow_Click"/>
 
     </Grid>
 </Window>

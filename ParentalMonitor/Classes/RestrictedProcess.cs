@@ -17,7 +17,7 @@ namespace ParentalMonitor.Classes
         public RestrictedProcess()
         {
             name = "ProcessName";
-            allowedRunningTime = TimeSpan.FromMinutes(120);
+            allowedRunningTime = TimeSpan.FromMinutes(0);
             warningTime = TimeSpan.FromMinutes(5);
         }
     }

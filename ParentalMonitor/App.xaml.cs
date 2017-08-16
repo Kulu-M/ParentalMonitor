@@ -29,8 +29,8 @@ namespace ParentalMonitor
 
         private void HotKeyManager_HotKeyPressed(object sender, HotKeyEventArgs e)
         {
-            //Show Main Window or Hide Main Window
-            throw new NotImplementedException();
+            if (MainWindow.Visibility == Visibility.Visible) return;
+            MainWindow.Visibility = Visibility.Visible;
         }
     }
 }
