@@ -5,18 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ParentalMonitor.Views"
         mc:Ignorable="d"
-        Title="Add a new restricted Process" Height="273.046" Width="421.69" Loaded="Window_Loaded">
-    <Grid Height="228" VerticalAlignment="Top">
+        Title="Add a new restricted Process" Height="310.379" Width="421.69" Loaded="Window_Loaded" ResizeMode="NoResize">
+    <Grid Height="314" VerticalAlignment="Top">
         <Label x:Name="label" Content="Enter the exact name of the Process:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,12,0,0"/>
         <TextBox x:Name="tb_newProcessName" HorizontalAlignment="Left" Height="22" Margin="10,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"/>
-        <Button x:Name="b_showProcList" Content="Process List" HorizontalAlignment="Left" Margin="220,44,0,0" VerticalAlignment="Top" Width="112" Click="b_showProcList_Click"/>
-        <Label x:Name="label1" Content="How long is the process allowed to run each day?" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tb_allowedRunTime" HorizontalAlignment="Left" Height="23" Margin="10,147,0,0" TextWrapping="Wrap" Text="00:00" VerticalAlignment="Top" Width="111" HorizontalContentAlignment="Right" TextChanged="tb_allowedRunTime_TextChanged"/>
-        <Image x:Name="___ParentalMonitor_component_76818_png" Margin="332,5,-10,149" Source="/ParentalMonitor;component/76818.png" Stretch="Fill" MouseDown="___ParentalMonitor_component_76818_png_MouseDown"/>
-        <Image x:Name="img_red" Margin="126,147,259,57" Source="/ParentalMonitor;component/240_F_77391841_6m1m3D47djs5FF4Z5HGZW5wiXMiAhzxe.jpg" Stretch="Fill"/>
-        <Image x:Name="img_green" Margin="126,147,261,57" Source="/ParentalMonitor;component/greenhaken.png" Stretch="Fill"/>
-        <Button x:Name="b_save" Content="Save" HorizontalAlignment="Left" Margin="10,196,0,0" VerticalAlignment="Top" Width="76" Click="b_save_Click"/>
-        <Button x:Name="b_cancel" Content="Cancel" HorizontalAlignment="Left" Margin="316,196,0,0" VerticalAlignment="Top" Width="74"/>
+        <Button x:Name="b_showProcList" Content="Process List" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="198" Click="b_showProcList_Click"/>
+        <Label x:Name="label1" Content="How long is the process allowed to run each day?" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_allowedRunTime" HorizontalAlignment="Left" Height="22" Margin="11,192,0,0" TextWrapping="Wrap" Text="00:00" VerticalAlignment="Top" Width="111" HorizontalContentAlignment="Right" TextChanged="tb_allowedRunTime_TextChanged"/>
+        <Image x:Name="___ParentalMonitor_component_76818_png" Margin="334,10,-10,229" Source="/ParentalMonitor;component/76818.png" Stretch="Fill" Width="90" Height="75" MouseDown="___ParentalMonitor_component_76818_png_MouseDown" MouseEnter="___ParentalMonitor_component_76818_png_MouseEnter" MouseLeave="___ParentalMonitor_component_76818_png_MouseLeave"/>
+        <Image x:Name="img_red" Margin="127,192,262,97" Source="/ParentalMonitor;component/240_F_77391841_6m1m3D47djs5FF4Z5HGZW5wiXMiAhzxe.jpg" Width="25" Height="25"/>
+        <Image x:Name="img_green" Width="25" Height="25" Margin="127,189,262,100" Source="/ParentalMonitor;component/greenhaken.png"/>
+        <Button x:Name="b_save" Content="Save" HorizontalAlignment="Left" Margin="11,241,0,0" VerticalAlignment="Top" Width="76" Click="b_save_Click"/>
+        <Button x:Name="b_cancel" Content="Cancel" HorizontalAlignment="Left" Margin="317,241,0,0" VerticalAlignment="Top" Width="74"/>
+        <Label x:Name="label2" Content="Or choose from the List of running Processes:" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

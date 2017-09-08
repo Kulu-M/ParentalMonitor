@@ -38,7 +38,9 @@ namespace ParentalMonitor.Views
 
         private void ___ParentalMonitor_component_76818_png_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            //Show help dialog
+            MessageBox.Show(
+                "Enter the exact process name like in the Task Manager - but without the file ending ('.exe'). You can also choose a running process from the List." + Environment.NewLine +" After that input the time in HH:MM.",
+                "Help", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void tb_allowedRunTime_TextChanged(object sender, TextChangedEventArgs e)
@@ -96,6 +98,32 @@ namespace ParentalMonitor.Views
             proc.ShowDialog();
             newProcessName = proc.newProcessName;
             tb_newProcessName.Text = newProcessName;
+        }
+
+        private void ___ParentalMonitor_component_76818_png_MouseEnter(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                Mouse.OverrideCursor = Cursors.Hand;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void ___ParentalMonitor_component_76818_png_MouseLeave(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                Mouse.OverrideCursor = Cursors.Arrow;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
