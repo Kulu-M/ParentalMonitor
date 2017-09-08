@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using ParentalMonitor.Classes;
+using ParentalMonitor.Views;
 
 namespace ParentalMonitor
 {
@@ -49,7 +50,7 @@ namespace ParentalMonitor
 
             insertExampleProcess();
 
-            lb_processListBox.ItemsSource = App._restrictedProcessesList;
+            lv_main.ItemsSource = App._restrictedProcessesList;
         }
 
         private void insertExampleProcess()
@@ -110,7 +111,7 @@ namespace ParentalMonitor
         
         private void controlTimerTick(object sender, EventArgs e)
         {
-            lb_processListBox.Items.Refresh();
+            lv_main.Items.Refresh();
 
             dayChangedChecker();
 
@@ -191,7 +192,16 @@ namespace ParentalMonitor
                 proc.actualRunningTime = TimeSpan.Zero;
             }
         }
-        
+
         #endregion TimeControl
-   }
+
+        private void b_add_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewDialog add = new AddNewDialog();
+            add.Owner = this;
+            add.ShowDialog();
+
+            lv_main.Items.Refresh();
+        }
+    }
 }

@@ -1,0 +1,101 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using ParentalMonitor.Classes;
+
+namespace ParentalMonitor.Views
+{
+    /// <summary>
+    /// Interaction logic for AddNewDialog.xaml
+    /// </summary>
+    public partial class AddNewDialog : Window
+    {
+        public string newProcessName = "";
+        public TimeSpan newProcessAllowedRuntime;
+        public bool timeSpanCanBeUsed = true;
+        public bool firstTime = true;
+
+        public AddNewDialog()
+        {
+            InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            img_green.Visibility = Visibility.Visible;
+            img_red.Visibility = Visibility.Hidden;
+        }
+
+        private void ___ParentalMonitor_component_76818_png_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //Show help dialog
+        }
+
+        private void tb_allowedRunTime_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!firstTime)
+            {
+                try
+                {
+                    newProcessAllowedRuntime = TimeSpan.Parse(tb_allowedRunTime.Text);
+                    img_green.Visibility = Visibility.Visible;
+                    img_red.Visibility = Visibility.Hidden;
+                    timeSpanCanBeUsed = true;
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception);
+                    img_green.Visibility = Visibility.Hidden;
+                    img_red.Visibility = Visibility.Visible;
+                    timeSpanCanBeUsed = false;
+                }
+            }
+            firstTime = false;
+        }
+
+        private void b_save_Click(object sender, RoutedEventArgs e)
+        {
+            newProcessName = tb_newProcessName.Text;
+            if (String.IsNullOrWhiteSpace(tb_newProcessName.Text))
+            {
+                MessageBox.Show("Please enter a Process name or choose one from the List", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (!timeSpanCanBeUsed)
+            {
+                MessageBox.Show("Please enter a valid Timespan", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
+            else if (timeSpanCanBeUsed)
+            {
+                var newProc = new RestrictedProcess
+                {
+                    actualRunningTime = TimeSpan.Zero,
+                    allowedRunningTime = newProcessAllowedRuntime,
+                    name = newProcessName,
+                    warningTime = Settings.globalWarningTime
+                };
+                App._restrictedProcessesList.Add(newProc);
+                Close();
+            }
+        }
+
+        private void b_showProcList_Click(object sender, RoutedEventArgs e)
+        {
+            ProcessListChooser proc = new ProcessListChooser();
+            proc.Owner = this;
+            proc.ShowDialog();
+            newProcessName = proc.newProcessName;
+            tb_newProcessName.Text = newProcessName;
+        }
+    }
+}
