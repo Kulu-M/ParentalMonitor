@@ -25,9 +25,10 @@ namespace ParentalMonitor
     {
         #region VarDec
 
-        public TimeSpan threadingTime = TimeSpan.FromMinutes(0.1);
+        public TimeSpan threadingTime = TimeSpan.FromMinutes(0.01);
         public DispatcherTimer controlTimer = new DispatcherTimer();
-        private List<RestrictedProcess> restrictedProcessesList;
+        //public List<RestrictedProcess> restrictedProcessesList;
+        public bool programmActive;
 
         #endregion VarDec
 
@@ -39,17 +40,21 @@ namespace ParentalMonitor
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Settings.day = DateTime.Today;
-            restrictedProcessesList = new List<RestrictedProcess>();
+            App._restrictedProcessesList = new List<RestrictedProcess>();
             controlTimer = new DispatcherTimer();
             controlTimer.Interval = threadingTime;
             controlTimer.Tick += controlTimerTick;
 
+            deactivateProgram();
+
             insertExampleProcess();
+
+            lb_processListBox.ItemsSource = App._restrictedProcessesList;
         }
 
         private void insertExampleProcess()
         {
-            restrictedProcessesList.Add(new RestrictedProcess { name = "firefox", allowedRunningTime = TimeSpan.Zero});
+            App._restrictedProcessesList.Add(new RestrictedProcess { name = "iexplore", allowedRunningTime = TimeSpan.FromMinutes(5)});
         }
 
         #region Show-Hide
@@ -75,19 +80,41 @@ namespace ParentalMonitor
 
         private void b_activateControl_Click(object sender, RoutedEventArgs e)
         {
-            controlTimer.Start();
+            if (programmActive)
+            {
+                deactivateProgram();
+            }
+            else
+            {
+                activateProgram();
+            }
         }
 
-        private void b_deactivateControl_Click(object sender, RoutedEventArgs e)
+        public void activateProgram()
+        {
+            controlTimer.Start();
+            tb_status.Foreground = new SolidColorBrush(Colors.DarkGreen);
+            tb_status.Text = "Parental Control Activated";
+            b_activateDeactivateControl.Content = "Deactivate";
+            programmActive = true;
+        }
+
+        public void deactivateProgram()
         {
             controlTimer.Stop();
+            tb_status.Foreground = new SolidColorBrush(Colors.Red);
+            tb_status.Text = "Parental Control Deactivated";
+            b_activateDeactivateControl.Content = "Activate";
+            programmActive = false;
         }
-
+        
         private void controlTimerTick(object sender, EventArgs e)
         {
+            lb_processListBox.Items.Refresh();
+
             dayChangedChecker();
 
-            foreach (var restrictedProcess in restrictedProcessesList)
+            foreach (var restrictedProcess in App._restrictedProcessesList)
             {
                 //Check if Process is running and raise runtime
                 if (checkIfProcessIsRunning(restrictedProcess.name))
@@ -159,15 +186,12 @@ namespace ParentalMonitor
 
         private void resetTimeLimitsForRestrictedProcesses()
         {
-            foreach (var proc in restrictedProcessesList)
+            foreach (var proc in App._restrictedProcessesList)
             {
                 proc.actualRunningTime = TimeSpan.Zero;
             }
         }
-
-
+        
         #endregion TimeControl
-
-       
-    }
+   }
 }

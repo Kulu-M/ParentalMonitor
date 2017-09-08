@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParentalMonitor", "ParentalMonitor\ParentalMonitor.csproj", "{6033448D-1343-4F83-8298-02F37916C16F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiddenWindowsService", "HiddenWindowsService\HiddenWindowsService\HiddenWindowsService.csproj", "{78757F40-5BC7-4524-BF8A-DCD8BA2DC363}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "HiddenServiceInstaller", "HiddenWindowsService\HiddenServiceInstaller\HiddenServiceInstaller.vdproj", "{EEE192B3-DE58-437A-9C1D-7C0F47E24417}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{6033448D-1343-4F83-8298-02F37916C16F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6033448D-1343-4F83-8298-02F37916C16F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6033448D-1343-4F83-8298-02F37916C16F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78757F40-5BC7-4524-BF8A-DCD8BA2DC363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78757F40-5BC7-4524-BF8A-DCD8BA2DC363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78757F40-5BC7-4524-BF8A-DCD8BA2DC363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78757F40-5BC7-4524-BF8A-DCD8BA2DC363}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE192B3-DE58-437A-9C1D-7C0F47E24417}.Debug|Any CPU.ActiveCfg = Debug
+		{EEE192B3-DE58-437A-9C1D-7C0F47E24417}.Debug|Any CPU.Build.0 = Debug
+		{EEE192B3-DE58-437A-9C1D-7C0F47E24417}.Release|Any CPU.ActiveCfg = Release
+		{EEE192B3-DE58-437A-9C1D-7C0F47E24417}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

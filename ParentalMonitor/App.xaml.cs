@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using Instant_Process_Killer;
+using ParentalMonitor.Classes;
 using Application = System.Windows.Application;
 
 namespace ParentalMonitor
@@ -18,6 +19,8 @@ namespace ParentalMonitor
     public partial class App : Application
     {
         public static int _id = new int();
+
+        public static List<RestrictedProcess> _restrictedProcessesList;
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
