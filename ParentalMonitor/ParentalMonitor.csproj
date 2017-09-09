@@ -120,10 +120,7 @@
     <Resource Include="Icons\76818.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="76818.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="240_F_77391841_6m1m3D47djs5FF4Z5HGZW5wiXMiAhzxe.jpg" />
+    <Resource Include="Icons\240_F_77391841_6m1m3D47djs5FF4Z5HGZW5wiXMiAhzxe.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="greenhaken.png" />

@@ -108,8 +108,7 @@ namespace ParentalMonitor.Views
             }
             catch (Exception)
             {
-
-                throw;
+                // ignored
             }
         }
 
@@ -121,9 +120,13 @@ namespace ParentalMonitor.Views
             }
             catch (Exception)
             {
-
-                throw;
+                // ignored
             }
+        }
+
+        private void b_cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

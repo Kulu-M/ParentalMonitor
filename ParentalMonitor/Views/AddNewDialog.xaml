@@ -12,11 +12,11 @@
         <Button x:Name="b_showProcList" Content="Process List" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="198" Click="b_showProcList_Click"/>
         <Label x:Name="label1" Content="How long is the process allowed to run each day?" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tb_allowedRunTime" HorizontalAlignment="Left" Height="22" Margin="11,192,0,0" TextWrapping="Wrap" Text="00:00" VerticalAlignment="Top" Width="111" HorizontalContentAlignment="Right" TextChanged="tb_allowedRunTime_TextChanged"/>
-        <Image x:Name="___ParentalMonitor_component_76818_png" Margin="334,10,-10,229" Source="/ParentalMonitor;component/76818.png" Stretch="Fill" Width="90" Height="75" MouseDown="___ParentalMonitor_component_76818_png_MouseDown" MouseEnter="___ParentalMonitor_component_76818_png_MouseEnter" MouseLeave="___ParentalMonitor_component_76818_png_MouseLeave"/>
+        <Image x:Name="___ParentalMonitor_component_76818_png" Margin="334,10,-10,229" Source="/Icons/76818.png" Stretch="Fill" Width="90" Height="75" MouseDown="___ParentalMonitor_component_76818_png_MouseDown" MouseEnter="___ParentalMonitor_component_76818_png_MouseEnter" MouseLeave="___ParentalMonitor_component_76818_png_MouseLeave"/>
         <Image x:Name="img_red" Margin="127,192,262,97" Source="/ParentalMonitor;component/240_F_77391841_6m1m3D47djs5FF4Z5HGZW5wiXMiAhzxe.jpg" Width="25" Height="25"/>
         <Image x:Name="img_green" Width="25" Height="25" Margin="127,189,262,100" Source="/ParentalMonitor;component/greenhaken.png"/>
         <Button x:Name="b_save" Content="Save" HorizontalAlignment="Left" Margin="11,241,0,0" VerticalAlignment="Top" Width="76" Click="b_save_Click"/>
-        <Button x:Name="b_cancel" Content="Cancel" HorizontalAlignment="Left" Margin="317,241,0,0" VerticalAlignment="Top" Width="74"/>
+        <Button x:Name="b_cancel" Content="Cancel" HorizontalAlignment="Left" Margin="317,241,0,0" VerticalAlignment="Top" Width="74" Click="b_cancel_Click"/>
         <Label x:Name="label2" Content="Or choose from the List of running Processes:" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top"/>
 
     </Grid>
