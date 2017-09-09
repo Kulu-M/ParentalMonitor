@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>WindowsMaintenanceService.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
@@ -48,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Processes.cs" />
-    <Compile Include="Config\ConfigFile.cs" />
+    <Compile Include="Config\Settings.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
     </Compile>

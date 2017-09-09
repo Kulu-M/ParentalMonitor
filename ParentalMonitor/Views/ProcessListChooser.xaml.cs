@@ -30,9 +30,12 @@ namespace ParentalMonitor.Views
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             var localProcesses = Process.GetProcesses();
+            var localProcessesSorted =
+                localProcesses.Where(x => x.SessionId == Process.GetCurrentProcess().SessionId)
+                    .OrderBy(x => x.ProcessName);
             try
             {
-                lb_proc.ItemsSource = localProcesses;
+                lb_proc.ItemsSource = localProcessesSorted;                
             }
             catch
             {

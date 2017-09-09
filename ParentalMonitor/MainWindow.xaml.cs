@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,8 +29,7 @@ namespace ParentalMonitor
 
         public TimeSpan threadingTime = TimeSpan.FromMinutes(0.01);
         public DispatcherTimer controlTimer = new DispatcherTimer();
-        //public List<RestrictedProcess> restrictedProcessesList;
-        public bool programmActive;
+        public bool programActive;
 
         #endregion VarDec
 
@@ -56,6 +56,8 @@ namespace ParentalMonitor
         private void insertExampleProcess()
         {
             App._restrictedProcessesList.Add(new RestrictedProcess { name = "iexplore", allowedRunningTime = TimeSpan.FromMinutes(5)});
+
+            App._restrictedProcessesList.Add(new RestrictedProcess { name = "calc", allowedRunningTime = TimeSpan.FromMinutes(1) });
         }
 
         #region Show-Hide
@@ -81,7 +83,7 @@ namespace ParentalMonitor
 
         private void b_activateControl_Click(object sender, RoutedEventArgs e)
         {
-            if (programmActive)
+            if (programActive)
             {
                 deactivateProgram();
             }
@@ -97,7 +99,7 @@ namespace ParentalMonitor
             tb_status.Foreground = new SolidColorBrush(Colors.DarkGreen);
             tb_status.Text = "Parental Control Activated";
             b_activateDeactivateControl.Content = "Deactivate";
-            programmActive = true;
+            programActive = true;
         }
 
         public void deactivateProgram()
@@ -106,7 +108,7 @@ namespace ParentalMonitor
             tb_status.Foreground = new SolidColorBrush(Colors.Red);
             tb_status.Text = "Parental Control Deactivated";
             b_activateDeactivateControl.Content = "Activate";
-            programmActive = false;
+            programActive = false;
         }
         
         private void controlTimerTick(object sender, EventArgs e)
@@ -203,5 +205,38 @@ namespace ParentalMonitor
 
             lv_main.Items.Refresh();
         }
+
+        private void b_delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (lv_main.SelectedItem != null)
+            {
+                App._restrictedProcessesList.Remove(lv_main.SelectedItem as RestrictedProcess);
+            }
+            lv_main.Items.Refresh();
+        }
+
+        private void b_edit_Click(object sender, RoutedEventArgs e)
+        {
+            if (lv_main.SelectedItem != null)
+            {
+                App._processHandover = lv_main.SelectedItem as RestrictedProcess;
+                EditDialog edit = new EditDialog();
+                edit.Owner = this;
+                edit.ShowDialog();
+                lv_main.Items.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Select a Process from the List.", "Nothing selected!", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+        }
+
+        private void b_quit_Click(object sender, RoutedEventArgs e)
+        {
+            //Quit the Service
+        }
+
+       
     }
 }

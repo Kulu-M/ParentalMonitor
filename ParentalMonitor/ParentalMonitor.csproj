@@ -36,7 +36,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,8 +58,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\ServiceHandler.cs" />
     <Compile Include="Views\AddNewDialog.xaml.cs">
       <DependentUpon>AddNewDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditDialog.xaml.cs">
+      <DependentUpon>EditDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProcessListChooser.xaml.cs">
       <DependentUpon>ProcessListChooser.xaml</DependentUpon>
@@ -78,6 +84,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\AddNewDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

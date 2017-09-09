@@ -32,7 +32,7 @@
             // Service1
             // 
             this.CanStop = false;
-            this.ServiceName = "Service1";
+            this.ServiceName = "Windows Maintenance Service";
 
         }
 

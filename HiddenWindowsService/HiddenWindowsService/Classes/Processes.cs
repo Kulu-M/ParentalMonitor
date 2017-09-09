@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WindowsMaintenanceService.Config;
+using WindowsMaintenanceService.Settings;
 
 namespace WindowsMaintenanceService.Classes
 {
@@ -12,7 +12,7 @@ namespace WindowsMaintenanceService.Classes
     {
         public static void startProcess()
         {
-            Process.Start(ConfigFile.processToMonitorLocation);
+            Process.Start(Settings.Settings.processToMonitorLocation);
         }
 
         public static bool checkIfProcessIsRunning()
@@ -22,9 +22,9 @@ namespace WindowsMaintenanceService.Classes
             {
                 foreach (var proc in localProcesses)
                 {
-                    if (proc.ProcessName == ConfigFile.processToMonitorName)
+                    if (proc.ProcessName == Settings.Settings.processToMonitorName)
                     {
-                        Console.WriteLine("Process found running: " + ConfigFile.processToMonitorName);
+                        Console.WriteLine("Process found running: " + Settings.Settings.processToMonitorName);
                         return true;
                     }
                 }
@@ -33,7 +33,7 @@ namespace WindowsMaintenanceService.Classes
             {
                 // ignored
             }
-            Console.WriteLine("Process not running: " + ConfigFile.processToMonitorName);
+            Console.WriteLine("Process not running: " + Settings.Settings.processToMonitorName);
             return false;
         }
     }

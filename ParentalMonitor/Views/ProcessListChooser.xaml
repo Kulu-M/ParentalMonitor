@@ -8,8 +8,8 @@
         Title="Choose a Process" Height="296.552" Width="231.897" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -27,8 +27,8 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-            <Button Grid.Column="0" Grid.Row="1" x:Name="b_select" Content="Button" HorizontalAlignment="Left" Margin="10,10,20,0" VerticalAlignment="Top" Width="75" Click="b_select_Click"/>
-        <Button Grid.Column="1" Grid.Row="1" x:Name="b_cancel" Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" Click="b_cancel_Click" Margin="00,10,10,10" />
+            <Button Grid.Column="0" Grid.Row="1" x:Name="b_select" Content="Select" HorizontalAlignment="Left" Margin="10,10,20,0" VerticalAlignment="Top" Width="75" Click="b_select_Click"/>
+        <Button Grid.Column="1" Grid.Row="1" x:Name="b_cancel" Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" Click="b_cancel_Click" Margin="00,10,10,0" />
 
 
 

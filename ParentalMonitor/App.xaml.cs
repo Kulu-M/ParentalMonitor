@@ -20,14 +20,20 @@ namespace ParentalMonitor
     {
         public static int _id = new int();
 
+        public static RestrictedProcess _processHandover;
+
         public static List<RestrictedProcess> _restrictedProcessesList;
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             _id = 0;
 
-            App._id = HotKeyManager.RegisterHotKey(Keys.Enter, ModifierKeys.None);
+            //Register Hotkey
+            App._id = HotKeyManager.RegisterHotKey(Keys.F1, ModifierKeys.None);
             HotKeyManager.HotKeyPressed += HotKeyManager_HotKeyPressed;
+
+            //Start Monitoring the Service
+            ServiceHandler.startServiceController();
         }
 
         private void HotKeyManager_HotKeyPressed(object sender, HotKeyEventArgs e)

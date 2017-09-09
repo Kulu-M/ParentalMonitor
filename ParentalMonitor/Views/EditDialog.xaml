@@ -1,23 +1,23 @@
-﻿<Window x:Class="ParentalMonitor.Views.AddNewDialog"
+﻿<Window x:Class="ParentalMonitor.Views.EditDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ParentalMonitor.Views"
         mc:Ignorable="d"
-        Title="Add a new restricted Process" Height="310.379" Width="421.69" Loaded="Window_Loaded" ResizeMode="NoResize">
+        Title="Edit an existing Process" Height="310.379" Width="421.69" Loaded="Window_Loaded" >
     <Grid Height="385" VerticalAlignment="Top" Margin="0,0,-6,-103">
         <Label x:Name="label" Content="Enter the exact name of the Process:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,12,0,0"/>
         <TextBox x:Name="tb_newProcessName" HorizontalAlignment="Left" Height="22" Margin="10,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"/>
         <Button x:Name="b_showProcList" Content="Process List" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="198" Click="b_showProcList_Click"/>
         <Label x:Name="label1" Content="How long is the process allowed to run each day?" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top"/>
         <StackPanel Margin="11,192,0,0" Orientation="Horizontal">
-        <TextBox x:Name="tb_allowedRunTime" HorizontalAlignment="Left" Height="22"  TextWrapping="Wrap" Text="hh:mm" VerticalAlignment="Top" Width="111" HorizontalContentAlignment="Right" TextChanged="tb_allowedRunTime_TextChanged"/>
+            <TextBox x:Name="tb_allowedRunTime" HorizontalAlignment="Left" Height="22"  TextWrapping="Wrap" Text="hh:mm" VerticalAlignment="Top" Width="111" HorizontalContentAlignment="Right" TextChanged="tb_allowedRunTime_TextChanged"/>
             <Image Margin="5,0,0,0" x:Name="img_red" Source="/Icons/240_F_77391841_6m1m3D47djs5FF4Z5HGZW5wiXMiAhzxe.jpg" Width="25" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Image x:Name="img_green" Width="25" Height="25" Source="/ParentalMonitor;component/greenhaken.png" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         </StackPanel>
         <Image x:Name="___ParentalMonitor_component_76818_png" Margin="338,10,-6,300" Source="/Icons/76818.png" Stretch="Fill" Width="90" Height="75" MouseDown="___ParentalMonitor_component_76818_png_MouseDown" MouseEnter="___ParentalMonitor_component_76818_png_MouseEnter" MouseLeave="___ParentalMonitor_component_76818_png_MouseLeave"/>
-        
+
         <Button x:Name="b_save" Content="Save" HorizontalAlignment="Left" Margin="11,241,0,0" VerticalAlignment="Top" Width="76" Click="b_save_Click"/>
         <Button x:Name="b_cancel" Content="Cancel" HorizontalAlignment="Left" Margin="317,241,0,0" VerticalAlignment="Top" Width="74" Click="b_cancel_Click"/>
         <Label x:Name="label2" Content="Or choose from the List of running Processes:" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top"/>

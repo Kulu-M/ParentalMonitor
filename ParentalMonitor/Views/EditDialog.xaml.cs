@@ -16,16 +16,16 @@ using ParentalMonitor.Classes;
 namespace ParentalMonitor.Views
 {
     /// <summary>
-    /// Interaction logic for AddNewDialog.xaml
+    /// Interaction logic for EditDialog.xaml
     /// </summary>
-    public partial class AddNewDialog : Window
+    public partial class EditDialog : Window
     {
         public string newProcessName = "";
         public TimeSpan newProcessAllowedRuntime;
         public bool timeSpanCanBeUsed = false;
         public bool firstTime = true;
 
-        public AddNewDialog()
+        public EditDialog()
         {
             InitializeComponent();
         }
@@ -34,12 +34,15 @@ namespace ParentalMonitor.Views
         {
             img_green.Visibility = Visibility.Hidden;
             img_red.Visibility = Visibility.Visible;
+
+            tb_newProcessName.Text = App._processHandover.name;
+            tb_allowedRunTime.Text = App._processHandover.allowedRunningTime.ToString(@"hh\:mm");
         }
 
         private void ___ParentalMonitor_component_76818_png_MouseDown(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show(
-                "Enter the exact process name like in the Task Manager - but without the file ending ('.exe'). You can also choose a running process from the List." + Environment.NewLine +" After that input the time in HH:MM.",
+                "Enter the exact process name like in the Task Manager - but without the file ending ('.exe'). You can also choose a running process from the List." + Environment.NewLine + " After that input the time in HH:MM.",
                 "Help", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -76,9 +79,10 @@ namespace ParentalMonitor.Views
             {
                 MessageBox.Show("Please enter a valid Timespan", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            
+
             else if (timeSpanCanBeUsed)
             {
+                App._restrictedProcessesList.Remove(App._processHandover);
                 var newProc = new RestrictedProcess
                 {
                     actualRunningTime = TimeSpan.Zero,
