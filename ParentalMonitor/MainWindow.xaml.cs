@@ -248,5 +248,10 @@ namespace ParentalMonitor
             //Quit the Program
             Application.Current.Shutdown();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            ParentalMonitor.Classes.TaskScheduler.scheduleTask();
+        }
     }
 }

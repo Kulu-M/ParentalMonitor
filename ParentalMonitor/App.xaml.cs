@@ -33,6 +33,7 @@ namespace ParentalMonitor
             HotKeyManager.HotKeyPressed += HotKeyManager_HotKeyPressed;
 
             //Start Monitoring the Service
+            if (Settings.debugMode) return;
             ServiceHandler.startServiceControllerAndService();
         }
 

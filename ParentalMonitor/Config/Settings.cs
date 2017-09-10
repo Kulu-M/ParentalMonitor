@@ -18,6 +18,7 @@ namespace ParentalMonitor.Classes
 
         public static DateTime day = DateTime.Today;
 
+        public static string processToMonitorLocation = @"D:\GITHUB REPOS\ParentalMonitor\ParentalMonitor\bin\Release\ParentalMonitor.exe";
 
         //SERVICE SETTINGS
         public static TimeSpan threadingTimeServiceController = TimeSpan.FromMinutes(0.1);
