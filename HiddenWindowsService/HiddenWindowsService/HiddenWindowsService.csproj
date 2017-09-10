@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ApplicationLoader.cs" />
     <Compile Include="Classes\Processes.cs" />
     <Compile Include="Config\Settings.cs" />
     <Compile Include="ProjectInstaller.cs">

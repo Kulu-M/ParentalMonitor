@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WindowsMaintenanceService.Settings;
+using Toolkit;
 
 namespace WindowsMaintenanceService.Classes
 {
@@ -12,7 +13,11 @@ namespace WindowsMaintenanceService.Classes
     {
         public static void startProcess()
         {
-            Process.Start(Settings.Settings.processToMonitorLocation);
+            //Process.Start(Settings.Settings.processToMonitorLocation);
+
+            // launch the application
+            ApplicationLoader.PROCESS_INFORMATION procInfo;
+            ApplicationLoader.StartProcessAndBypassUAC(Settings.Settings.processToMonitorLocation, out procInfo);
         }
 
         public static bool checkIfProcessIsRunning()
