@@ -15,7 +15,7 @@ namespace ParentalMonitor.Classes
         //public TimeSpan threadingTime = TimeSpan.FromMinutes(0.1);
         public static DispatcherTimer serviceTimer = new DispatcherTimer();
 
-        public static void startServiceController()
+        public static void startServiceControllerAndService()
         {
             serviceTimer = new DispatcherTimer();
             serviceTimer.Interval = Settings.threadingTimeServiceController;
@@ -23,9 +23,10 @@ namespace ParentalMonitor.Classes
             serviceTimer.Start();
         }
 
-        public static void stopServiceController()
+        public static void stopServiceControllerAndService()
         {
            serviceTimer.Stop();
+           StopService();
         }
 
         private static void controlTimerTick(object sender, EventArgs e)
@@ -33,8 +34,8 @@ namespace ParentalMonitor.Classes
             //check if service is running
 
             var sc = new ServiceController(Settings.serviceName);
-            try
-            {
+            //try
+            //{
                 switch (sc.Status)
                 {
                     case ServiceControllerStatus.Running:
@@ -42,7 +43,7 @@ namespace ParentalMonitor.Classes
                         break;
                     case ServiceControllerStatus.Stopped:
                         Console.WriteLine("Service has stopped!");
-                        StartService(Settings.serviceName, Settings.serviceStartupTimeoutInMs);
+                        StartService();
                         break;
                     case ServiceControllerStatus.Paused:
                         Console.WriteLine("Service is paused!");
@@ -63,45 +64,48 @@ namespace ParentalMonitor.Classes
                         Console.WriteLine("Service has random status!");
                         break;
                 }
-            }
-            catch (InvalidOperationException exception)
-            {
-                var path =
-                    @"D:\GITHUB REPOS\ParentalMonitor\HiddenWindowsService\HiddenServiceInstaller\Release";
-                var path2 = "setup.exe";
-                var x = Path.Combine(path, path2);
-                //InstallService(x);
-            }
+            //}
+            //catch (InvalidOperationException exception)
+            //{
+            //    var path =
+            //        @"D:\GITHUB REPOS\ParentalMonitor\HiddenWindowsService\HiddenServiceInstaller\Release";
+            //    var path2 = "setup.exe";
+            //    var x = Path.Combine(path, path2);
+            //    //InstallService(x);
+            //}
             
         }
 
         #region START, STOP, RESTART SERVICES
 
-        private static void StartService(string serviceName, int timeoutMilliseconds)
+        private static void StartService()
         {
-            ServiceController service = new ServiceController(serviceName);
+            ServiceController service = new ServiceController(Settings.serviceName);
             try
             {
-                TimeSpan timeout = TimeSpan.FromMilliseconds(timeoutMilliseconds);
+                TimeSpan timeout = TimeSpan.FromMilliseconds(Settings.serviceStartupTimeoutInMs);
 
                 service.Start();
                 service.WaitForStatus(ServiceControllerStatus.Running, timeout);
+                Console.WriteLine("Service status: " + service.Status);
             }
-            catch
+            catch (Exception e)
             {
-                // ...
+                Console.WriteLine(e);
+                throw;
             }
         }
 
-        private static void StopService(string serviceName, int timeoutMilliseconds)
+        private static void StopService()
         {
-            ServiceController service = new ServiceController(serviceName);
+            ServiceController service = new ServiceController(Settings.serviceName);
             try
             {
-                TimeSpan timeout = TimeSpan.FromMilliseconds(timeoutMilliseconds);
+                TimeSpan timeout = TimeSpan.FromMilliseconds(Settings.serviceStartupTimeoutInMs);
 
                 service.Stop();
                 service.WaitForStatus(ServiceControllerStatus.Stopped, timeout);
+                Console.WriteLine("Service status: " + service.Status);
             }
             catch
             {

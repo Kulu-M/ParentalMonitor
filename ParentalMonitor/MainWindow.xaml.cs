@@ -235,8 +235,18 @@ namespace ParentalMonitor
         private void b_quit_Click(object sender, RoutedEventArgs e)
         {
             //Quit the Service
-        }
+            try
+            {
+                ServiceHandler.stopServiceControllerAndService();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
 
-       
+            //Quit the Program
+            Application.Current.Shutdown();
+        }
     }
 }
