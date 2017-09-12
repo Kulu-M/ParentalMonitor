@@ -58,6 +58,12 @@ namespace ParentalMonitor
             App._restrictedProcessesList.Add(new RestrictedProcess { name = "iexplore", allowedRunningTime = TimeSpan.FromMinutes(5)});
 
             App._restrictedProcessesList.Add(new RestrictedProcess { name = "calc", allowedRunningTime = TimeSpan.FromMinutes(1) });
+
+            App._restrictedProcessesList.Add(new RestrictedProcess { name = "atom", allowedRunningTime = TimeSpan.FromMinutes(60) });
+
+            App._restrictedProcessesList.Add(new RestrictedProcess { name = "firefox", allowedRunningTime = TimeSpan.FromMinutes(120) });
+
+            App._restrictedProcessesList.Add(new RestrictedProcess { name = "DropBox", allowedRunningTime = TimeSpan.FromMinutes(180) });
         }
 
         #region Show-Hide
@@ -252,6 +258,11 @@ namespace ParentalMonitor
         private void button_Click(object sender, RoutedEventArgs e)
         {
             ParentalMonitor.Classes.TaskScheduler.scheduleTask();
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            //ToDo Unschedule
         }
     }
 }

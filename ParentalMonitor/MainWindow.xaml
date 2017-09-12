@@ -12,7 +12,7 @@
         <Button x:Name="b_hideWindow" Content="Hide" HorizontalAlignment="Left" Margin="424,10,0,0" VerticalAlignment="Top" Width="75" Click="b_hideWindow_Click"/>
         <TextBlock x:Name="tb_status" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Active" VerticalAlignment="Top" Margin="0,10,0,0" FontSize="20" Foreground="#FF38A410"/>
 
-        <ListView x:Name="lv_main" HorizontalAlignment="Left" Height="152" Margin="10,103,0,0" VerticalAlignment="Top" Width="489" ScrollViewer.HorizontalScrollBarVisibility ="Disabled">
+        <ListView x:Name="lv_main" HorizontalAlignment="Left" Height="196" Margin="10,59,0,0" VerticalAlignment="Top" Width="489" ScrollViewer.HorizontalScrollBarVisibility ="Disabled">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding name}" Width="190"/>
@@ -25,7 +25,8 @@
         <Button x:Name="b_edit" Content="Edit" HorizontalAlignment="Left" Margin="138,274,0,0" VerticalAlignment="Top" Width="75" Click="b_edit_Click"/>
         <Button x:Name="b_delete" Content="Delete" HorizontalAlignment="Left" Margin="283,274,0,0" VerticalAlignment="Top" Width="76" Click="b_delete_Click"/>
         <Button x:Name="b_quit" Content="Quit" HorizontalAlignment="Left" Margin="423,274,0,0" VerticalAlignment="Top" Width="76" Click="b_quit_Click"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="178,55,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="button" Content="Schdule" HorizontalAlignment="Left" Margin="424,37,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Visibility="Hidden"/>
+        <Button x:Name="button1" Content="Deschedule" HorizontalAlignment="Left" Margin="424,64,0,0" VerticalAlignment="Top" Width="76" Click="button1_Click" Visibility="Hidden"/>
 
 
     </Grid>
