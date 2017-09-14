@@ -13,13 +13,26 @@ namespace ParentalMonitorDaemon.Classes
     {
         public static void processLogic()
         {
-            if (!checkIfProcessIsRunning())
+            if (howManyProcessInstancesAreRunning(Settings.processToMonitorName) == 0)
             {
-                startProcess();
+                startProcess(Settings.processToMonitorLocation);
             }
             else
             {
                 Console.WriteLine("Daemon: Already running!");
+            }
+
+            //if (howManyProcessInstancesAreRunning(@"calc") < Settings.daemonInstancesToRun)
+            //{
+            //    startProcess(@"C:\Windows\system32\calc.exe");
+            //    var x = AppDomain.CurrentDomain.FriendlyName;
+            //}
+            var processName =
+                AppDomain.CurrentDomain.FriendlyName.Substring(0, AppDomain.CurrentDomain.FriendlyName.Length - 4);
+
+            if (howManyProcessInstancesAreRunning(processName) < Settings.daemonInstancesToRun)
+            {
+                startProcess(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, AppDomain.CurrentDomain.FriendlyName));
             }
         }
 
@@ -43,10 +56,32 @@ namespace ParentalMonitorDaemon.Classes
             return false;
         }
 
-        private static void startProcess()
+        private static int howManyProcessInstancesAreRunning(string processName)
+        {
+            var localProcesses = Process.GetProcesses();
+            var count = 0;
+            try
+            {
+                foreach (var proc in localProcesses)
+                {
+                    if (proc.ProcessName == processName)
+                    {
+                        count++;
+                    }
+                }
+                return count;
+            }
+            catch
+            {
+                // ignored
+            }
+            return count;
+        }
+
+        private static void startProcess(string processToStart)
         {
             Process proc = new Process();
-            proc.StartInfo.FileName = Settings.processToMonitorLocation;
+            proc.StartInfo.FileName = processToStart;
             proc.Start();
             Console.WriteLine("Daemon: Starting " + proc.ProcessName + ".");
         }

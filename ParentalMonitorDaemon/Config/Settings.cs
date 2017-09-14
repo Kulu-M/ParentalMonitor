@@ -13,5 +13,7 @@ namespace ParentalMonitorDaemon.Config
         public static string processToMonitorLocation = @"D:\GITHUB REPOS\ParentalMonitor\ParentalMonitor\bin\Release\ParentalMonitor.exe";
 
         public static TimeSpan threadingTime = TimeSpan.FromMinutes(0.1);
+
+        public static int daemonInstancesToRun = 2;
     }
 }
