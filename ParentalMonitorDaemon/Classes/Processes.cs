@@ -22,11 +22,6 @@ namespace ParentalMonitorDaemon.Classes
                 Console.WriteLine("Daemon: Already running!");
             }
 
-            //if (howManyProcessInstancesAreRunning(@"calc") < Settings.daemonInstancesToRun)
-            //{
-            //    startProcess(@"C:\Windows\system32\calc.exe");
-            //    var x = AppDomain.CurrentDomain.FriendlyName;
-            //}
             var processName =
                 AppDomain.CurrentDomain.FriendlyName.Substring(0, AppDomain.CurrentDomain.FriendlyName.Length - 4);
 
@@ -34,26 +29,6 @@ namespace ParentalMonitorDaemon.Classes
             {
                 startProcess(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, AppDomain.CurrentDomain.FriendlyName));
             }
-        }
-
-        private static bool checkIfProcessIsRunning()
-        {
-            var localProcesses = Process.GetProcesses();
-            try
-            {
-                foreach (var proc in localProcesses)
-                {
-                    if (proc.ProcessName == Settings.processToMonitorName)
-                    {
-                        return true;
-                    }
-                }
-            }
-            catch
-            {
-                // ignored
-            }
-            return false;
         }
 
         private static int howManyProcessInstancesAreRunning(string processName)

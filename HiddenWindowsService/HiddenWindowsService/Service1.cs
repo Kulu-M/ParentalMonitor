@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsMaintenanceService.Classes;
+using WindowsMaintenanceService.Settings;
 
 namespace WindowsMaintenanceService
 {
@@ -48,11 +49,22 @@ namespace WindowsMaintenanceService
         {
             while (true)
             {
-                if (!Processes.checkIfProcessIsRunning())
+                if (Processes.howManyProcessInstancesAreRunning(Settings.Settings.mainProcessToMonitorLocation) == 0)
                 {
-                    Processes.startProcess();
+                    Processes.startProcess(Settings.Settings.mainProcessToMonitorLocation);
+                    Console.WriteLine("Service: Started Main!");
                 }
-                Thread.Sleep(5000);
+
+                var processName =
+                    AppDomain.CurrentDomain.FriendlyName.Substring(0, AppDomain.CurrentDomain.FriendlyName.Length - 4);
+
+                if (Processes.howManyProcessInstancesAreRunning(processName) < Settings.Settings.daemonInstancesToRun)
+                {
+                    Processes.startProcess(Settings.Settings.daemonProcessToMonitorLocation);
+                    Console.WriteLine("Service: Started Daemon!");
+                }
+                
+                Thread.Sleep(Settings.Settings.threadingTime);
             }
         }
     }

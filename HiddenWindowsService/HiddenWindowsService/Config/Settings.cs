@@ -10,8 +10,16 @@ namespace WindowsMaintenanceService.Settings
     {
         public static string serviceName = "Windows Maintenance Service";
 
-        public static string processToMonitorName = "ParentalMonitor";
+        public static string mainProcessToMonitorName = "ParentalMonitor";
 
-        public static string processToMonitorLocation = @"D:\GITHUB REPOS\ParentalMonitor\ParentalMonitor\bin\Release\ParentalMonitor.exe";
+        public static string mainProcessToMonitorLocation = @"D:\GITHUB REPOS\ParentalMonitor\ParentalMonitor\bin\Release\ParentalMonitor.exe";
+
+        public static string daemonProcessToMonitorName = "ParentalMonitorDaemon";
+
+        public static string daemonProcessToMonitorLocation = @"D:\GITHUB REPOS\ParentalMonitor\ParentalMonitorDaemon\bin\Release\ParentalMonitorDaemon.exe";
+
+        public static int daemonInstancesToRun = 2;
+
+        public static int threadingTime = 1000;
     }
 }

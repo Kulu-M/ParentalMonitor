@@ -11,35 +11,35 @@ namespace WindowsMaintenanceService.Classes
 {
     static class Processes
     {
-        public static void startProcess()
+        public static void startProcess(string processLocation)
         {
             //Process.Start(Settings.Settings.processToMonitorLocation);
 
             // launch the application
             ApplicationLoader.PROCESS_INFORMATION procInfo;
-            ApplicationLoader.StartProcessAndBypassUAC(Settings.Settings.processToMonitorLocation, out procInfo);
+            ApplicationLoader.StartProcessAndBypassUAC(processLocation, out procInfo);
         }
 
-        public static bool checkIfProcessIsRunning()
+        public static int howManyProcessInstancesAreRunning(string processName)
         {
             var localProcesses = Process.GetProcesses();
+            var count = 0;
             try
             {
                 foreach (var proc in localProcesses)
                 {
-                    if (proc.ProcessName == Settings.Settings.processToMonitorName)
+                    if (proc.ProcessName == processName)
                     {
-                        Console.WriteLine("Process found running: " + Settings.Settings.processToMonitorName);
-                        return true;
+                        count++;
                     }
                 }
+                return count;
             }
             catch
             {
                 // ignored
             }
-            Console.WriteLine("Process not running: " + Settings.Settings.processToMonitorName);
-            return false;
+            return count;
         }
     }
 }
