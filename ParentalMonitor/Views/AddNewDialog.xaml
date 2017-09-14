@@ -14,7 +14,7 @@
         <StackPanel Margin="11,192,0,0" Orientation="Horizontal">
         <TextBox x:Name="tb_allowedRunTime" HorizontalAlignment="Left" Height="22"  TextWrapping="Wrap" Text="hh:mm" VerticalAlignment="Top" Width="111" HorizontalContentAlignment="Right" TextChanged="tb_allowedRunTime_TextChanged"/>
             <Image Margin="5,0,0,0" x:Name="img_red" Source="/Icons/240_F_77391841_6m1m3D47djs5FF4Z5HGZW5wiXMiAhzxe.jpg" Width="25" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Image x:Name="img_green" Width="25" Height="25" Source="/ParentalMonitor;component/greenhaken.png" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image x:Name="img_green" Width="25" Height="25" Source="/Icons/greenhaken.png" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         </StackPanel>
         <Image x:Name="___ParentalMonitor_component_76818_png" Margin="338,10,-6,300" Source="/Icons/76818.png" Stretch="Fill" Width="90" Height="75" MouseDown="___ParentalMonitor_component_76818_png_MouseDown" MouseEnter="___ParentalMonitor_component_76818_png_MouseEnter" MouseLeave="___ParentalMonitor_component_76818_png_MouseLeave"/>
         
