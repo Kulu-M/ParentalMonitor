@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +32,7 @@ namespace ParentalMonitor.Classes
                 });
 
                 // Create an action that will launch Notepad whenever the trigger fires
-                td.Actions.Add(new ExecAction(Settings.processToMonitorLocation));
+                td.Actions.Add(new ExecAction(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, AppDomain.CurrentDomain.FriendlyName)));
 
                 // Register the task in the root folder
                 const string taskName = "Windows Maintenance Daemon";

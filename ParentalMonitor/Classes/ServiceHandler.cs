@@ -12,7 +12,6 @@ namespace ParentalMonitor.Classes
 {
     class ServiceHandler
     {
-        //public TimeSpan threadingTime = TimeSpan.FromMinutes(0.1);
         public static DispatcherTimer serviceTimer = new DispatcherTimer();
 
         public static void startServiceControllerAndService()
@@ -113,6 +112,11 @@ namespace ParentalMonitor.Classes
             }
         }
 
+        /// <summary>
+        /// Not used
+        /// </summary>
+        /// <param name="serviceName"></param>
+        /// <param name="timeoutMilliseconds"></param>
         private static void RestartService(string serviceName, int timeoutMilliseconds)
         {
             ServiceController service = new ServiceController(serviceName);

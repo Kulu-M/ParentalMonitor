@@ -30,7 +30,6 @@ namespace ParentalMonitorProcessKiller
                 foreach (var VARIABLE in processesToKill)
                 {
                     Processes.killProcess(VARIABLE);
-                    
                 }
                 Console.WriteLine(Environment.NewLine);
             }

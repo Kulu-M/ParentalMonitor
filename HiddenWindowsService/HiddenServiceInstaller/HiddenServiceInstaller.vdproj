@@ -28,13 +28,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7B4A863CB7A162753D1F2185F1C8D379"
+        "OwnerKey" = "8:_B13BDC0E5DAA4E6DAE4A61F5BE201486"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B13BDC0E5DAA4E6DAE4A61F5BE201486"
+        "OwnerKey" = "8:_7B4A863CB7A162753D1F2185F1C8D379"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -62,6 +62,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
         "Release"
@@ -86,6 +94,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
     }
@@ -151,6 +167,11 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
+                    "_7B4A863CB7A162753D1F2185F1C8D379"
+                    {
+                    "Name" = "8:System.Net.Http.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -225,9 +246,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Hidden Windows Service"
+        "ProductName" = "8:Windows Maintenance Service"
         "ProductCode" = "8:{8742DF07-DE77-4055-9335-01C38990B17C}"
-        "PackageCode" = "8:{4524BFAE-7092-42E7-9794-65FB22262014}"
+        "PackageCode" = "8:{636DFDBE-5DE2-46E4-8634-2B3DAEDD24EA}"
         "UpgradeCode" = "8:{F772C769-6BF6-4732-8331-D2B89454713E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -748,7 +769,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B13BDC0E5DAA4E6DAE4A61F5BE201486"
             {
-            "SourcePath" = "8:..\\HiddenWindowsService\\obj\\Debug\\HiddenWindowsService.exe"
+            "SourcePath" = "8:..\\HiddenWindowsService\\obj\\x86\\Release\\Windows Maintenance Service.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_C58BB67C8BAE4A77A6BF8C205BBA0217"

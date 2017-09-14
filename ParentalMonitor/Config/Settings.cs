@@ -8,7 +8,7 @@ namespace ParentalMonitor.Classes
 {
     public static class Settings
     {
-        public static bool debugMode = true;
+        public static bool debugMode = false;
 
         public static TimeSpan timeToThreadInMinutes = TimeSpan.FromMinutes(1);
 
@@ -18,14 +18,21 @@ namespace ParentalMonitor.Classes
 
         public static DateTime day = DateTime.Today;
 
-        public static string processToMonitorLocation = @"D:\GITHUB REPOS\ParentalMonitor\ParentalMonitor\bin\Release\ParentalMonitor.exe";
-
         //SERVICE SETTINGS
         public static TimeSpan threadingTimeServiceController = TimeSpan.FromMinutes(0.1);
 
         public static string serviceName = "Windows Maintenance Service";
 
         public static int serviceStartupTimeoutInMs = 30000;
+
+        //DAEMON SETTINGS
+        public static TimeSpan threadingTimeDaemonController = TimeSpan.FromMinutes(0.1);
+
+        public static string daemonProcessToMonitorName = "ParentalMonitorDaemon";
+
+        public static string daemonProcessToMonitorLocation = @"D:\GITHUB REPOS\ParentalMonitor\ParentalMonitorDaemon\bin\Release\ParentalMonitorDaemon.exe";
+
+        public static int daemonInstancesToRun = 2;
 
     }
 }

@@ -244,6 +244,15 @@ namespace ParentalMonitor
             try
             {
                 ServiceHandler.stopServiceControllerAndService();
+
+                var localProcesses = Process.GetProcesses();
+                foreach (var proc in localProcesses)
+                {
+                    if (proc.ProcessName == Settings.daemonProcessToMonitorName)
+                    {
+                        proc.Kill();
+                    }
+                }
             }
             catch (Exception exception)
             {

@@ -49,16 +49,13 @@ namespace WindowsMaintenanceService
         {
             while (true)
             {
-                if (Processes.howManyProcessInstancesAreRunning(Settings.Settings.mainProcessToMonitorLocation) == 0)
+                if (Processes.howManyProcessInstancesAreRunning(Settings.Settings.mainProcessToMonitorName) <= 0)
                 {
                     Processes.startProcess(Settings.Settings.mainProcessToMonitorLocation);
                     Console.WriteLine("Service: Started Main!");
                 }
 
-                var processName =
-                    AppDomain.CurrentDomain.FriendlyName.Substring(0, AppDomain.CurrentDomain.FriendlyName.Length - 4);
-
-                if (Processes.howManyProcessInstancesAreRunning(processName) < Settings.Settings.daemonInstancesToRun)
+                if (Processes.howManyProcessInstancesAreRunning(Settings.Settings.daemonProcessToMonitorName) < Settings.Settings.daemonInstancesToRun)
                 {
                     Processes.startProcess(Settings.Settings.daemonProcessToMonitorLocation);
                     Console.WriteLine("Service: Started Daemon!");
