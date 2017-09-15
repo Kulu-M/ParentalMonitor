@@ -27,7 +27,6 @@ namespace ParentalMonitor
     {
         #region VarDec
 
-        public TimeSpan threadingTime = TimeSpan.FromMinutes(0.01);
         public DispatcherTimer controlTimer = new DispatcherTimer();
         public bool programActive;
 
@@ -43,7 +42,7 @@ namespace ParentalMonitor
             Settings.day = DateTime.Today;
             App._restrictedProcessesList = new List<RestrictedProcess>();
             controlTimer = new DispatcherTimer();
-            controlTimer.Interval = threadingTime;
+            controlTimer.Interval = Settings.threadingTime;
             controlTimer.Tick += controlTimerTick;
 
             deactivateProgram();
@@ -118,11 +117,8 @@ namespace ParentalMonitor
                 //Check if Process is running and raise runtime
                 if (checkIfProcessIsRunning(restrictedProcess.name))
                 {
-                    restrictedProcess.actualRunningTime += threadingTime;
+                    restrictedProcess.actualRunningTime += Settings.threadingTime;
                 }
-
-                //Send Warning if enabled
-
 
                 //Kill Processes when their runtime is up
                 if (checkIfProcessIsRunning(restrictedProcess.name) && restrictedProcess.actualRunningTime >= restrictedProcess.allowedRunningTime)

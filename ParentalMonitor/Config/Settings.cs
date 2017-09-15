@@ -10,7 +10,7 @@ namespace ParentalMonitor.Classes
     {
         public static bool debugMode = false;
 
-        public static TimeSpan timeToThreadInMinutes = TimeSpan.FromMinutes(1);
+        public static TimeSpan threadingTime = TimeSpan.FromMinutes(0.1);
 
         public static TimeSpan globalWarningTime = TimeSpan.FromMinutes(5);
 
