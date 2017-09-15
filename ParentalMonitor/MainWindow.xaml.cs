@@ -66,24 +66,14 @@ namespace ParentalMonitor
             App._restrictedProcessesList.Add(new RestrictedProcess { name = "DropBox", allowedRunningTime = TimeSpan.FromMinutes(180) });
         }
 
-        #region Show-Hide
+        #region Hide
 
         private void b_hideWindow_Click(object sender, RoutedEventArgs e)
-        {
-            hideMainWindow();
-        }
-
-        public void showMainWindow()
-        {
-            //Done in App.xaml.cs
-        }
-
-        public void hideMainWindow()
         {
             this.Hide();
         }
 
-        #endregion Show-Hide
+        #endregion Hide
 
         #region TimeControl
 
