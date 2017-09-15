@@ -38,6 +38,8 @@ namespace ParentalMonitor
 
             _id = 0;
 
+            SaveLoad.LoadFromJson();
+
             //Register Hotkey
             App._id = HotKeyManager.RegisterHotKey(Keys.F1, ModifierKeys.None);
             HotKeyManager.HotKeyPressed += HotKeyManager_HotKeyPressed;

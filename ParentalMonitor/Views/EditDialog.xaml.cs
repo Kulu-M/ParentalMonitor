@@ -88,7 +88,6 @@ namespace ParentalMonitor.Views
                     actualRunningTime = TimeSpan.Zero,
                     allowedRunningTime = newProcessAllowedRuntime,
                     name = newProcessName,
-                    warningTime = Settings.globalWarningTime
                 };
                 App._restrictedProcessesList.Add(newProc);
                 Close();

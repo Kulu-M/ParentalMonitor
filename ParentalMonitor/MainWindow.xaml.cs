@@ -40,14 +40,13 @@ namespace ParentalMonitor
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Settings.day = DateTime.Today;
-            App._restrictedProcessesList = new List<RestrictedProcess>();
             controlTimer = new DispatcherTimer();
             controlTimer.Interval = Settings.threadingTime;
             controlTimer.Tick += controlTimerTick;
 
             deactivateProgram();
 
-            insertExampleProcess();
+            //insertExampleProcess();
 
             lv_main.ItemsSource = App._restrictedProcessesList;
         }
@@ -226,6 +225,7 @@ namespace ParentalMonitor
 
         private void b_quit_Click(object sender, RoutedEventArgs e)
         {
+            SaveLoad.SaveToJson();
             //Quit the Service
             try
             {

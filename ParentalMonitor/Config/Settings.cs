@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,11 +9,11 @@ namespace ParentalMonitor.Classes
 {
     public static class Settings
     {
+        public static string saveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SaveFile.json");
+
         public static bool debugMode = false;
 
         public static TimeSpan threadingTime = TimeSpan.FromMinutes(0.1);
-
-        public static TimeSpan globalWarningTime = TimeSpan.FromMinutes(5);
 
         public static bool showWarnings = true;
 
