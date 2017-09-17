@@ -31,6 +31,7 @@
             // 
             // Service1
             // 
+            this.CanStop = false;
             this.ServiceName = "Windows Maintenance Service";
 
         }
