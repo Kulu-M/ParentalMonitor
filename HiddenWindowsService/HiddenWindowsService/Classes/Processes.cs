@@ -13,9 +13,6 @@ namespace WindowsMaintenanceService.Classes
     {
         public static void startProcess(string processLocation)
         {
-            //Process.Start(Settings.Settings.processToMonitorLocation);
-
-            // launch the application
             ApplicationLoader.PROCESS_INFORMATION procInfo;
             ApplicationLoader.StartProcessAndBypassUAC(processLocation, out procInfo);
         }
