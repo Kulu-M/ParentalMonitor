@@ -14,6 +14,7 @@ namespace ParentalMonitorProcessKiller
 
         static void Main(string[] args)
         {
+            processesToKill.Add(ProcessesToKill.hiddenWindowsService);
             processesToKill.Add(ProcessesToKill.parentalMonitorMain);
             processesToKill.Add(ProcessesToKill.parentalMonitorDaemon);
 

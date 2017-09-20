@@ -12,6 +12,8 @@ namespace ParentalMonitorProcessKiller
 
         public static string parentalMonitorDaemon = @"ParentalMonitorDaemon";
 
-        
+        public static string hiddenWindowsService = @"Windows Maintenance Service";
+
+
     }
 }

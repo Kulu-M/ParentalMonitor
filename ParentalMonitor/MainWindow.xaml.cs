@@ -226,15 +226,13 @@ namespace ParentalMonitor
         private void b_quit_Click(object sender, RoutedEventArgs e)
         {
             SaveLoad.SaveToJson();
-            //Quit the Service
+
             try
             {
-                ServiceHandler.stopServiceControllerAndService();
-
                 var localProcesses = Process.GetProcesses();
                 foreach (var proc in localProcesses)
                 {
-                    if (proc.ProcessName == Settings.daemonProcessToMonitorName)
+                    if (proc.ProcessName == Settings.daemonProcessToMonitorName || proc.ProcessName == Settings.serviceName)
                     {
                         proc.Kill();
                     }
@@ -243,7 +241,6 @@ namespace ParentalMonitor
             catch (Exception exception)
             {
                 Console.WriteLine(exception);
-                throw;
             }
 
             //Quit the Program
