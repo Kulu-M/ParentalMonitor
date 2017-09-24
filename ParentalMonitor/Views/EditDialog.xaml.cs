@@ -82,14 +82,14 @@ namespace ParentalMonitor.Views
 
             else if (timeSpanCanBeUsed)
             {
-                App._restrictedProcessesList.Remove(App._processHandover);
+                App._settings.restrictedProcessesList.Remove(App._processHandover);
                 var newProc = new RestrictedProcess
                 {
                     actualRunningTime = TimeSpan.Zero,
                     allowedRunningTime = newProcessAllowedRuntime,
                     name = newProcessName,
                 };
-                App._restrictedProcessesList.Add(newProc);
+                App._settings.restrictedProcessesList.Add(newProc);
                 Close();
             }
         }

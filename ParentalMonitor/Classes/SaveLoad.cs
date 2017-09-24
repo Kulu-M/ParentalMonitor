@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Input;
 using Newtonsoft.Json;
 
 namespace ParentalMonitor.Classes
@@ -14,7 +16,7 @@ namespace ParentalMonitor.Classes
         {
             try
             {
-                File.WriteAllText(Settings.saveFilePath, JsonConvert.SerializeObject(App._restrictedProcessesList));
+                File.WriteAllText(App._settings.saveFilePath, JsonConvert.SerializeObject(App._settings));
             }
             catch (Exception e)
             {
@@ -24,16 +26,20 @@ namespace ParentalMonitor.Classes
 
         public static void LoadFromJson()
         {
+
             try
             {
-                App._restrictedProcessesList = JsonConvert.DeserializeObject<List<RestrictedProcess>>(File.ReadAllText(Settings.saveFilePath));
+               App._settings = JsonConvert.DeserializeObject<Settings>(File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SaveFile.json"))) ?? new Settings();
             }
             catch (Exception e)
             {
-                File.Delete(Settings.saveFilePath);
+                App._settings = new Settings();
+                File.WriteAllText(App._settings.saveFilePath, JsonConvert.SerializeObject(App._settings));
                 Console.WriteLine(e);
             }
             
         }
     }
+
+    
 }

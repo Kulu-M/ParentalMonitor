@@ -24,7 +24,10 @@ namespace ParentalMonitorProcessKiller
 
                 // Keep the console window open in debug mode.
                 Console.WriteLine("Press any key to kill.");
+                
                 Console.ReadKey();
+
+                Console.WriteLine(Environment.NewLine);
 
                 ServiceHandler.StopService();
 

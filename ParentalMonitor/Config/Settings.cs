@@ -4,36 +4,83 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace ParentalMonitor.Classes
 {
-    public static class Settings
+    public class Settings
     {
-        public static string saveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SaveFile.json");
+        public Keys key;
 
-        public static bool debugMode = false;
+        public ModifierKeys modifierKey;
 
-        public static TimeSpan threadingTime = TimeSpan.FromMinutes(0.1);
+        public List<RestrictedProcess> restrictedProcessesList = new List<RestrictedProcess>();
 
-        public static bool showWarnings = true;
+        public  bool debugMode;
 
-        public static DateTime day = DateTime.Today;
+        public  TimeSpan threadingTime;
+
+        public  DateTime day;
 
         //SERVICE SETTINGS
-        public static TimeSpan threadingTimeServiceController = TimeSpan.FromMinutes(0.1);
+        public  TimeSpan threadingTimeServiceController;
 
-        public static string serviceName = "Windows Maintenance Service";
+        public  string serviceName;
 
-        public static int serviceStartupTimeoutInMs = 30000;
+        public  int serviceStartupTimeoutInMs;
 
         //DAEMON SETTINGS
-        public static TimeSpan threadingTimeDaemonController = TimeSpan.FromMinutes(0.1);
+        public  TimeSpan threadingTimeDaemonController;
 
-        public static string daemonProcessToMonitorName = "ParentalMonitorDaemon";
+        public  string daemonProcessToMonitorName;
 
-        public static string daemonProcessToMonitorLocation = @"D:\GITHUB REPOS\ParentalMonitor\ParentalMonitorDaemon\bin\Release\ParentalMonitorDaemon.exe";
+        public  string daemonProcessToMonitorLocation;
 
-        public static int daemonInstancesToRun = 2;
+        public  int daemonInstancesToRun;
 
+        public Settings()
+        {
+            debugMode = false;
+            threadingTime = TimeSpan.FromMinutes(0.1);
+            day = DateTime.Today;
+            threadingTimeServiceController = TimeSpan.FromMinutes(0.1);
+            serviceName = "Windows Maintenance Service";
+            serviceStartupTimeoutInMs = 30000;
+            threadingTimeDaemonController = TimeSpan.FromMinutes(0.1);
+            daemonProcessToMonitorName = "ParentalMonitorDaemon";
+            daemonProcessToMonitorLocation = @"D:\GITHUB REPOS\ParentalMonitor\ParentalMonitorDaemon\bin\Release\ParentalMonitorDaemon.exe";
+            daemonInstancesToRun = 2;
+        }
     }
+
+    //public static class Settings
+    //{
+    //    public static string saveFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SaveFile.json");
+
+    //    public static bool debugMode = false;
+
+    //    public static TimeSpan threadingTime = TimeSpan.FromMinutes(0.1);
+
+    //    public static bool showWarnings = true;
+
+    //    public static DateTime day = DateTime.Today;
+
+    //    //SERVICE SETTINGS
+    //    public static TimeSpan threadingTimeServiceController = TimeSpan.FromMinutes(0.1);
+
+    //    public static string serviceName = "Windows Maintenance Service";
+
+    //    public static int serviceStartupTimeoutInMs = 30000;
+
+    //    //DAEMON SETTINGS
+    //    public static TimeSpan threadingTimeDaemonController = TimeSpan.FromMinutes(0.1);
+
+    //    public static string daemonProcessToMonitorName = "ParentalMonitorDaemon";
+
+    //    public static string daemonProcessToMonitorLocation = @"D:\GITHUB REPOS\ParentalMonitor\ParentalMonitorDaemon\bin\Release\ParentalMonitorDaemon.exe";
+
+    //    public static int daemonInstancesToRun = 2;
+
+    //}
 }

@@ -21,9 +21,11 @@ namespace ParentalMonitor
     {
         public static int _id = new int();
 
+        public static Settings _settings;
+
         public static RestrictedProcess _processHandover;
 
-        public static List<RestrictedProcess> _restrictedProcessesList;
+        //public static List<RestrictedProcess> _restrictedProcessesList;
 
         static Mutex mutex = new Mutex(true, @"{243957!/§)($&%5069745609sjdhfsdjkfhdsjkfh98432532489}");
 
@@ -41,11 +43,11 @@ namespace ParentalMonitor
             SaveLoad.LoadFromJson();
 
             //Register Hotkey
-            App._id = HotKeyManager.RegisterHotKey(Keys.F1, ModifierKeys.None);
+            App._id = HotKeyManager.RegisterHotKey(_settings.key, _settings.modifierKey);
             HotKeyManager.HotKeyPressed += HotKeyManager_HotKeyPressed;
 
             //Start Monitoring the Service
-            if (Settings.debugMode) return;
+            if (App._settings.debugMode) return;
             ServiceHandler.startServiceControllerAndService();
             DaemonHandler.startDaemonController();
         }

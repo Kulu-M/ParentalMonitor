@@ -17,7 +17,7 @@ namespace ParentalMonitor.Classes
         public static void startServiceControllerAndService()
         {
             serviceTimer = new DispatcherTimer();
-            serviceTimer.Interval = Settings.threadingTimeServiceController;
+            serviceTimer.Interval = App._settings.threadingTimeServiceController;
             serviceTimer.Tick += controlTimerTick;
             serviceTimer.Start();
         }
@@ -32,7 +32,7 @@ namespace ParentalMonitor.Classes
         {
             //check if service is running
 
-            var sc = new ServiceController(Settings.serviceName);
+            var sc = new ServiceController(App._settings.serviceName);
             //try
             //{
                 switch (sc.Status)
@@ -79,28 +79,18 @@ namespace ParentalMonitor.Classes
 
         private static void StartService()
         {
-            ServiceController service = new ServiceController(Settings.serviceName);
-            try
-            {
-                TimeSpan timeout = TimeSpan.FromMilliseconds(Settings.serviceStartupTimeoutInMs);
-
-                service.Start();
-                service.WaitForStatus(ServiceControllerStatus.Running, timeout);
-                Console.WriteLine("Service status: " + service.Status);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            var service = new ServiceController(App._settings.serviceName);
+            var timeout = TimeSpan.FromMilliseconds(App._settings.serviceStartupTimeoutInMs);
+            service.Start();
+            service.WaitForStatus(ServiceControllerStatus.Running, timeout);
         }
 
         private static void StopService()
         {
-            ServiceController service = new ServiceController(Settings.serviceName);
+            ServiceController service = new ServiceController(App._settings.serviceName);
             try
             {
-                TimeSpan timeout = TimeSpan.FromMilliseconds(Settings.serviceStartupTimeoutInMs);
+                TimeSpan timeout = TimeSpan.FromMilliseconds(App._settings.serviceStartupTimeoutInMs);
 
                 service.Stop();
                 service.WaitForStatus(ServiceControllerStatus.Stopped, timeout);

@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using ParentalMonitor.Classes;
 using ParentalMonitor.Views;
+using Settings = ParentalMonitor.Classes.Settings;
 
 namespace ParentalMonitor
 {
@@ -39,29 +40,14 @@ namespace ParentalMonitor
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Settings.day = DateTime.Today;
+            App._settings.day = DateTime.Today;
             controlTimer = new DispatcherTimer();
-            controlTimer.Interval = Settings.threadingTime;
+            controlTimer.Interval = App._settings.threadingTime;
             controlTimer.Tick += controlTimerTick;
 
             deactivateProgram();
 
-            //insertExampleProcess();
-
-            lv_main.ItemsSource = App._restrictedProcessesList;
-        }
-
-        private void insertExampleProcess()
-        {
-            App._restrictedProcessesList.Add(new RestrictedProcess { name = "iexplore", allowedRunningTime = TimeSpan.FromMinutes(5)});
-
-            App._restrictedProcessesList.Add(new RestrictedProcess { name = "calc", allowedRunningTime = TimeSpan.FromMinutes(1) });
-
-            App._restrictedProcessesList.Add(new RestrictedProcess { name = "atom", allowedRunningTime = TimeSpan.FromMinutes(60) });
-
-            App._restrictedProcessesList.Add(new RestrictedProcess { name = "firefox", allowedRunningTime = TimeSpan.FromMinutes(120) });
-
-            App._restrictedProcessesList.Add(new RestrictedProcess { name = "DropBox", allowedRunningTime = TimeSpan.FromMinutes(180) });
+            lv_main.ItemsSource = App._settings.restrictedProcessesList;
         }
 
         #region Hide
@@ -111,12 +97,12 @@ namespace ParentalMonitor
 
             dayChangedChecker();
 
-            foreach (var restrictedProcess in App._restrictedProcessesList)
+            foreach (var restrictedProcess in App._settings.restrictedProcessesList)
             {
                 //Check if Process is running and raise runtime
                 if (checkIfProcessIsRunning(restrictedProcess.name))
                 {
-                    restrictedProcess.actualRunningTime += Settings.threadingTime;
+                    restrictedProcess.actualRunningTime += App._settings.threadingTime;
                 }
 
                 //Kill Processes when their runtime is up
@@ -164,7 +150,7 @@ namespace ParentalMonitor
 
         public bool dayChangedChecker()
         {
-            if (Settings.day != DateTime.Today)
+            if (App._settings.day != DateTime.Today)
             {
                 dayChanged();
                 return true;
@@ -174,13 +160,13 @@ namespace ParentalMonitor
 
         public void dayChanged()
         {
-            Settings.day = DateTime.Today;
+            App._settings.day = DateTime.Today;
             resetTimeLimitsForRestrictedProcesses();
         }
 
         private void resetTimeLimitsForRestrictedProcesses()
         {
-            foreach (var proc in App._restrictedProcessesList)
+            foreach (var proc in App._settings.restrictedProcessesList)
             {
                 proc.actualRunningTime = TimeSpan.Zero;
             }
@@ -201,7 +187,7 @@ namespace ParentalMonitor
         {
             if (lv_main.SelectedItem != null)
             {
-                App._restrictedProcessesList.Remove(lv_main.SelectedItem as RestrictedProcess);
+                App._settings.restrictedProcessesList.Remove(lv_main.SelectedItem as RestrictedProcess);
             }
             lv_main.Items.Refresh();
         }
@@ -232,7 +218,7 @@ namespace ParentalMonitor
                 var localProcesses = Process.GetProcesses();
                 foreach (var proc in localProcesses)
                 {
-                    if (proc.ProcessName == Settings.daemonProcessToMonitorName || proc.ProcessName == Settings.serviceName)
+                    if (proc.ProcessName == App._settings.daemonProcessToMonitorName || proc.ProcessName == App._settings.serviceName)
                     {
                         proc.Kill();
                     }
@@ -255,6 +241,13 @@ namespace ParentalMonitor
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             //ToDo Unschedule
+        }
+
+        private void b_settings_Click(object sender, RoutedEventArgs e)
+        {
+            Views.Settings settings = new Views.Settings();
+            settings.Owner = this;
+            settings.ShowDialog();
         }
     }
 }

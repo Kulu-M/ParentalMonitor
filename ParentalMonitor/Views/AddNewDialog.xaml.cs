@@ -85,7 +85,8 @@ namespace ParentalMonitor.Views
                     allowedRunningTime = newProcessAllowedRuntime,
                     name = newProcessName,
                 };
-                App._restrictedProcessesList.Add(newProc);
+                if (App._settings.restrictedProcessesList == null) App._settings.restrictedProcessesList = new List<RestrictedProcess>();
+                App._settings.restrictedProcessesList.Add(newProc);
                 Close();
             }
         }

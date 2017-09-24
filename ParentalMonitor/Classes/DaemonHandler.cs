@@ -15,16 +15,16 @@ namespace ParentalMonitor.Classes
         public static void startDaemonController()
         {
             daemonTimer = new DispatcherTimer();
-            daemonTimer.Interval = Settings.threadingTimeDaemonController;
+            daemonTimer.Interval = App._settings.threadingTimeDaemonController;
             daemonTimer.Tick += controlTimerTick;
             daemonTimer.Start();
         }
 
         private static void controlTimerTick(object sender, EventArgs e)
         {
-            if (howManyProcessInstancesAreRunning(Settings.daemonProcessToMonitorName) < Settings.daemonInstancesToRun)
+            if (howManyProcessInstancesAreRunning(App._settings.daemonProcessToMonitorName) < App._settings.daemonInstancesToRun)
             {
-                startProcess(Settings.daemonProcessToMonitorLocation);
+                startProcess(App._settings.daemonProcessToMonitorLocation);
                 Console.WriteLine("Service: Started Daemon!");
             }
         }
