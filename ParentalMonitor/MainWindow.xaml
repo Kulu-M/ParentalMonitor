@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ParentalMonitor"
         mc:Ignorable="d"
-        Visibility="Visible"
+        Visibility="Hidden"
         Title="Parental Monitor" Height="350" Width="525" Loaded="Window_Loaded" ResizeMode="NoResize">
     <Grid>
         <Button x:Name="b_activateDeactivateControl" Content="Activate" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="b_activateControl_Click"/>
@@ -27,7 +27,7 @@
         <Button x:Name="b_quit" Content="Quit" HorizontalAlignment="Left" Margin="423,274,0,0" VerticalAlignment="Top" Width="76" Click="b_quit_Click"/>
         <Button x:Name="button" Content="Schdule" HorizontalAlignment="Left" Margin="424,37,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Visibility="Hidden"/>
         <Button x:Name="button1" Content="Deschedule" HorizontalAlignment="Left" Margin="424,64,0,0" VerticalAlignment="Top" Width="76" Click="button1_Click" Visibility="Hidden"/>
-        <Button x:Name="b_settings" Content="Settings" HorizontalAlignment="Left" Margin="364,290,0,0" VerticalAlignment="Top" Width="75" Click="b_settings_Click"/>
+        <Button x:Name="b_settings" Content="Settings" HorizontalAlignment="Left" Margin="378,290,0,0" VerticalAlignment="Top" Width="75" Click="b_settings_Click" Visibility="Hidden"/>
 
 
     </Grid>

@@ -16,7 +16,7 @@ namespace ParentalMonitor.Classes
         {
             try
             {
-                File.WriteAllText(App._settings.saveFilePath, JsonConvert.SerializeObject(App._settings));
+                File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SaveFile.json"), JsonConvert.SerializeObject(App._settings));
             }
             catch (Exception e)
             {
@@ -34,7 +34,7 @@ namespace ParentalMonitor.Classes
             catch (Exception e)
             {
                 App._settings = new Settings();
-                File.WriteAllText(App._settings.saveFilePath, JsonConvert.SerializeObject(App._settings));
+                File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SaveFile.json"), JsonConvert.SerializeObject(App._settings));
                 Console.WriteLine(e);
             }
             
