@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Instant_Process_Killer;
 using ParentalMonitor.Classes;
 using ParentalMonitor.Views;
 using Settings = ParentalMonitor.Classes.Settings;
@@ -248,6 +249,8 @@ namespace ParentalMonitor
             Views.Settings settings = new Views.Settings();
             settings.Owner = this;
             settings.ShowDialog();
+
+            App._id = HotKeyManager.RegisterHotKey(App._settings.key, App._settings.modifierKey);
         }
     }
 }

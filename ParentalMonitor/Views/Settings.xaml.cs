@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Instant_Process_Killer;
 
 namespace ParentalMonitor.Views
 {
@@ -45,6 +46,8 @@ namespace ParentalMonitor.Views
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            HotKeyManager.UnregisterHotKey(App._id);
+
             App._settings.key = cb_key.SelectedItem as Keys? ?? Keys.None;
             App._settings.modifierKey = cb_modifier.SelectedItem as ModifierKeys? ?? ModifierKeys.None;
         }
