@@ -12,11 +12,11 @@ namespace WindowsMaintenanceService.Settings
 
         public static string mainProcessToMonitorName = "ParentalMonitor";
 
-        public static string mainProcessToMonitorLocation = @"D:\GITHUB REPOS\ParentalMonitor\ParentalMonitor\bin\x64\Release\ParentalMonitor.exe";
+        public static string mainProcessToMonitorLocation = @"C:\Users\Kulu-M\Documents\GitHub\ParentalMonitor\ParentalMonitor\bin\Release\ParentalMonitor.exe";
 
         public static string daemonProcessToMonitorName = "ParentalMonitorDaemon";
 
-        public static string daemonProcessToMonitorLocation = @"D:\GITHUB REPOS\ParentalMonitor\ParentalMonitorDaemon\bin\Release\ParentalMonitorDaemon.exe";
+        public static string daemonProcessToMonitorLocation = @"C:\Users\Kulu-M\Documents\GitHub\ParentalMonitor\ParentalMonitorDaemon\bin\Release\ParentalMonitorDaemon.exe";
 
         public static int daemonInstancesToRun = 2;
 

@@ -27,7 +27,7 @@ namespace ParentalMonitor
 
         //public static List<RestrictedProcess> _restrictedProcessesList;
 
-        static Mutex mutex = new Mutex(true, @"{243957!/§)($&%5069745609sjdhfsdjkfhdsjkfh98432532489}");
+        static Mutex mutex = new Mutex(true, @"{243957!/§)($&%5069745609sjdh63fsdjkfhdsjkfh98432532489}");
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
